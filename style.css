@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+/* Mode Selection */
+.mode-selection {
+    text-align: center;
+}
+
+.mode-selection h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.mode-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 10px;
+    background: #667eea;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mode-btn:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
+}
+
+/* Player Names */
+.player-names {
+    text-align: center;
+}
+
+.player-names input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.player-names button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Scoreboard */
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+} 
+
+.score {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Turn Indicator */
+.turn-indicator {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #667eea;
+}
+
+/* Game Board */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+    aspect-ratio: 1 / 1;
+}
+
+.cell {
+    aspect-ratio: 1 / 1;
+    background: #f8f9fa;
+    border: 3px solid #ddd;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cell:hover:not(.taken) {
+    background: #e9ecef;
+    transform: scale(1.05);
+}
+
+.cell.taken {
+    cursor: not-allowed;
+}
+
+.cell.x {
+    color: #667eea;
+}
+
+.cell.o {
+    color: #764ba2;
+}
+
+.cell.winner {
+    background: #ffd700;
+    animation: pulse 0.5s ease-in-out;
+}
+
+/* Game Controls */
+.game-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.game-controls button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#restartBtn {
+    background: #667eea;
+    color: white;
+}
+
+#resetBtn {
+    background: #dc3545;
+    color: white;
+}
+
+.game-controls button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Result Overlay */
+.result-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.result-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.result-content h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #667eea;
+}
+
+#nextRoundBtn {
+    padding: 12px 30px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .cell {
+        font-size: 2rem;
+    }
+    
+    .game-controls {
+        flex-direction: column;
+    }
+    
+    .scoreboard {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
