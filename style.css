@@ -5,8 +5,8 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Georgia', 'Garamond', serif;
+    background: linear-gradient(135deg, #ffeef8 0%, #ffe5f1 50%, #ffd4e8 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -15,19 +15,23 @@ body {
 }
 
 .container {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom, #ffffff, #fff5fb);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 15px 50px rgba(255, 182, 193, 0.3);
+    border: 3px solid #ffb6d9;
     max-width: 500px;
     width: 100%;
 }
 
 h1 {
     text-align: center;
-    color: #667eea;
+    color: #ff69b4;
     margin-bottom: 30px;
     font-size: 2.5rem;
+    font-family: 'Brush Script MT', cursive;
+    text-shadow: 2px 2px 4px rgba(255, 182, 193, 0.4);
+    letter-spacing: 2px;
 }
 
 /* Mode Selection */
@@ -37,7 +41,8 @@ h1 {
 
 .mode-selection h2 {
     margin-bottom: 20px;
-    color: #333;
+    color: #d946a6;
+    font-family: 'Georgia', serif;
 }
 
 .mode-btn {
@@ -46,17 +51,19 @@ h1 {
     padding: 15px;
     margin: 10px 0;
     font-size: 1.1rem;
-    border: none;
-    border-radius: 10px;
-    background: #667eea;
+    border: 2px solid #ffb6d9;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #ff9ec8, #ffb6d9);
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
 }
 
 .mode-btn:hover {
-    background: #764ba2;
-    transform: translateY(-2px);
+    background: linear-gradient(135deg, #ff69b4, #ff9ec8);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
 }
 
 /* Player Names */
@@ -69,21 +76,28 @@ h1 {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
-    border: 2px solid #ddd;
-    border-radius: 8px;
+    border: 2px solid #ffb6d9;
+    border-radius: 15px;
     font-size: 1rem;
+    background: #fff5fb;
+    color: #d946a6;
+}
+
+.player-names input::placeholder {
+    color: #ffb6d9;
 }
 
 .player-names button {
     width: 100%;
     padding: 12px;
     margin-top: 10px;
-    background: #667eea;
+    background: linear-gradient(135deg, #ff9ec8, #ffb6d9);
     color: white;
-    border: none;
-    border-radius: 8px;
+    border: 2px solid #ffb6d9;
+    border-radius: 15px;
     font-size: 1rem;
     cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
 }
 
 /* Scoreboard */
@@ -108,7 +122,9 @@ h1 {
     margin-bottom: 20px;
     font-size: 1.2rem;
     font-weight: bold;
-    color: #667eea;
+    color: #ff69b4;
+    font-family: 'Georgia', serif;
+    text-shadow: 1px 1px 2px rgba(255, 182, 193, 0.3);
 }
 
 /* Game Board */
@@ -122,9 +138,9 @@ h1 {
 
 .cell {
     aspect-ratio: 1 / 1;
-    background: #f8f9fa;
-    border: 3px solid #ddd;
-    border-radius: 10px;
+    background: linear-gradient(135deg, #ffffff, #fff5fb);
+    border: 3px solid #ffb6d9;
+    border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,11 +148,13 @@ h1 {
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 182, 193, 0.2);
 }
 
 .cell:hover:not(.taken) {
-    background: #e9ecef;
+    background: linear-gradient(135deg, #ffe5f1, #ffd4e8);
     transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(255, 105, 180, 0.3);
 }
 
 .cell.taken {
@@ -144,16 +162,19 @@ h1 {
 }
 
 .cell.x {
-    color: #667eea;
+    color: #ff69b4;
+    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
 }
 
 .cell.o {
-    color: #764ba2;
+    color: #d946a6;
+    text-shadow: 2px 2px 4px rgba(217, 70, 166, 0.3);
 }
 
 .cell.winner {
-    background: #ffd700;
+    background: linear-gradient(135deg, #ffd700, #ffeb99);
     animation: pulse 0.5s ease-in-out;
+    border-color: #ffd700;
 }
 
 /* Game Controls */
@@ -165,26 +186,30 @@ h1 {
 .game-controls button {
     flex: 1;
     padding: 12px;
-    border: none;
-    border-radius: 8px;
+    border: 2px solid;
+    border-radius: 15px;
     font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 #restartBtn {
-    background: #667eea;
+    background: linear-gradient(135deg, #ff9ec8, #ffb6d9);
     color: white;
+    border-color: #ffb6d9;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
 }
 
 #resetBtn {
-    background: #dc3545;
+    background: linear-gradient(135deg, #ff8fab, #ffb6c1);
     color: white;
+    border-color: #ffb6c1;
+    box-shadow: 0 4px 15px rgba(255, 143, 171, 0.2);
 }
 
 .game-controls button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
 }
 
 /* Result Overlay */
@@ -194,34 +219,46 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(255, 182, 193, 0.9);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    backdrop-filter: blur(5px);
 }
 
 .result-content {
-    background: white;
+    background: linear-gradient(to bottom, #ffffff, #fff5fb);
     padding: 40px;
-    border-radius: 20px;
+    border-radius: 30px;
     text-align: center;
+    border: 3px solid #ffb6d9;
+    box-shadow: 0 15px 50px rgba(255, 105, 180, 0.4);
 }
 
 .result-content h2 {
     margin-bottom: 20px;
     font-size: 2rem;
-    color: #667eea;
+    color: #ff69b4;
+    font-family: 'Georgia', serif;
+    text-shadow: 2px 2px 4px rgba(255, 182, 193, 0.3);
 }
 
 #nextRoundBtn {
     padding: 12px 30px;
-    background: #667eea;
+    background: linear-gradient(135deg, #ff9ec8, #ffb6d9);
     color: white;
-    border: none;
-    border-radius: 8px;
+    border: 2px solid #ffb6d9;
+    border-radius: 15px;
     font-size: 1rem;
     cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+    transition: all 0.3s ease;
+}
+
+#nextRoundBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
 }
 
 /* Utility Classes */
